@@ -19,7 +19,7 @@
  * This file keeps track of upgrades to the html block
  *
  * @since 2.0
- * @package block_html
+ * @package block_fb_chat
  * @copyright 2010 Dongsheng Cai
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,7 +29,7 @@
  * @param int $oldversion
  * @param object $block
  */
-function xmldb_block_html_upgrade($oldversion) {
+function xmldb_block_fb_chat_upgrade($oldversion) {
     global $CFG, $DB;
 
     // Moodle v2.3.0 release upgrade line

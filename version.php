@@ -27,4 +27,4 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->version   = 2012112900;        // The current plugin version (Date: YYYYMMDDXX)
 $plugin->requires  = 2012112900;        // Requires this Moodle version
-$plugin->component = 'block_html';      // Full name of the plugin (used for diagnostics)
+$plugin->component = 'block_fb_chat';      // Full name of the plugin (used for diagnostics)

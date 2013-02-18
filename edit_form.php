@@ -18,7 +18,7 @@
 /**
  * Form for editing HTML block instances.
  *
- * @package   block_html
+ * @package   block_fb_chat
  * @copyright 2009 Tim Hunt
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,25 +29,25 @@
  * @copyright 2009 Tim Hunt
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class block_html_edit_form extends block_edit_form {
+class block_fb_chat_edit_form extends block_edit_form {
     protected function specific_definition($mform) {
         global $CFG;
 
         // Fields for editing HTML block title and contents.
         $mform->addElement('header', 'configheader', get_string('blocksettings', 'block'));
 
-        $mform->addElement('text', 'config_title', get_string('configtitle', 'block_html'));
+        $mform->addElement('text', 'config_title', get_string('configtitle', 'block_fb_chat'));
         $mform->setType('config_title', PARAM_TEXT);
 
         $editoroptions = array('maxfiles' => EDITOR_UNLIMITED_FILES, 'noclean'=>true, 'context'=>$this->block->context);
-        $mform->addElement('editor', 'config_text', get_string('configcontent', 'block_html'), null, $editoroptions);
+        $mform->addElement('editor', 'config_text', get_string('configcontent', 'block_fb_chat'), null, $editoroptions);
         $mform->addRule('config_text', null, 'required', null, 'client');
         $mform->setType('config_text', PARAM_RAW); // XSS is prevented when printing the block contents and serving files
 
-        if (!empty($CFG->block_html_allowcssclasses)) {
-            $mform->addElement('text', 'config_classes', get_string('configclasses', 'block_html'));
+        if (!empty($CFG->block_fb_chat_allowcssclasses)) {
+            $mform->addElement('text', 'config_classes', get_string('configclasses', 'block_fb_chat'));
             $mform->setType('config_classes', PARAM_TEXT);
-            $mform->addHelpButton('config_classes', 'configclasses', 'block_html');
+            $mform->addHelpButton('config_classes', 'configclasses', 'block_fb_chat');
         }
     }
 
@@ -60,7 +60,7 @@ class block_html_edit_form extends block_edit_form {
             } else {
                 $currenttext = $text;
             }
-            $defaults->config_text['text'] = file_prepare_draft_area($draftid_editor, $this->block->context->id, 'block_html', 'content', 0, array('subdirs'=>true), $currenttext);
+            $defaults->config_text['text'] = file_prepare_draft_area($draftid_editor, $this->block->context->id, 'block_fb_chat', 'content', 0, array('subdirs'=>true), $currenttext);
             $defaults->config_text['itemid'] = $draftid_editor;
             $defaults->config_text['format'] = $this->block->config->format;
         } else {
