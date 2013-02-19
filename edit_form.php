@@ -52,7 +52,7 @@ class block_fb_chat_edit_form extends block_edit_form {
     }
 
     function set_data($defaults) {
-        if (!empty($this->block->config) && is_object($this->block->config)) {
+/*        if (!empty($this->block->config) && is_object($this->block->config)) {
             $text = $this->block->config->text;
             $draftid_editor = file_get_submitted_draft_itemid('config_text');
             if (empty($text)) {
@@ -77,6 +77,28 @@ class block_fb_chat_edit_form extends block_edit_form {
 
         // have to delete text here, otherwise parent::set_data will empty content
         // of editor
+        unset($this->block->config->text);
+        parent::set_data($defaults);
+        // restore $text
+        if (!isset($this->block->config)) {
+            $this->block->config = new stdClass();
+        }
+        $this->block->config->text = $text;
+        if (isset($title)) {
+            // Reset the preserved title
+            $this->block->config->title = $title;
+        }*/
+
+        $text = '<div id="fb-root"></div>'.
+        '<script>(function(d, s, id) {'.
+          'var js, fjs = d.getElementsByTagName(s)[0];'.
+            'if (d.getElementById(id)) return;'.
+              'js = d.createElement(s); js.id = id;'.
+                'js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";'.
+                  'fjs.parentNode.insertBefore(js, fjs);'.
+                  '}(document, "script", "facebook-jssdk"));</script>'.
+                  '<div class="fb-comments" data-href="http://example.com" data-width="470" data-num-posts="10"></div>';
+        $title = 'hahahah';
         unset($this->block->config->text);
         parent::set_data($defaults);
         // restore $text
