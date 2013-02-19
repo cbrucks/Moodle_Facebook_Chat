@@ -16,29 +16,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * This file keeps track of upgrades to the html block
+ * Strings for component 'block_search_forums', language 'en', branch 'MOODLE_20_STABLE'
  *
- * @since 2.0
- * @package block_fb_chat
- * @copyright 2010 Dongsheng Cai
+ * @package   block_search_forums
+ * @copyright 1999 onwards Martin Dougiamas  {@link http://moodle.com}
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-/**
- *
- * @param int $oldversion
- * @param object $block
- */
-function xmldb_block_fb_chat_upgrade($oldversion) {
-    global $CFG, $DB;
-
-    // Moodle v2.3.0 release upgrade line
-    // Put any upgrade step following this
-
-
-    // Moodle v2.4.0 release upgrade line
-    // Put any upgrade step following this
-
-
-    return true;
-}
+$string['advancedsearch'] = 'Advanced search';
+$string['pluginname'] = 'Search forums';
+$string['search_forums:addinstance'] = 'Add a new search forums block';
