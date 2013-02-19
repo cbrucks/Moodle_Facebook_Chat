@@ -1,8 +1,8 @@
 <?php
 
-class block_search_forums extends block_base {
+class block_fb_chat extends block_base {
     function init() {
-        $this->title = get_string('pluginname', 'block_search_forums');
+        $this->title = get_string('pluginname', 'block_fb_chat');
     }
 
     function get_content() {
@@ -20,36 +20,26 @@ class block_search_forums extends block_base {
             return $this->content;
         }
 
-        $advancedsearch = get_string('advancedsearch', 'block_search_forums');
+        $advancedsearch = get_string('advancedsearch', 'block_fb_chat');
 
         $strsearch  = get_string('search');
         $strgo      = get_string('go');
 
-        $this->content->text  = '<div class="searchform">';
-        $this->content->text .= '<form action="'.$CFG->wwwroot.'/mod/forum/search.php" style="display:inline"><fieldset class="invisiblefieldset">';
-        $this->content->text .= '<legend class="accesshide">'.$strsearch.'</legend>';
-        $this->content->text .= '<input name="id" type="hidden" value="'.$this->page->course->id.'" />';  // course
-        $this->content->text .= '<label class="accesshide" for="searchform_search">'.$strsearch.'</label>'.
-                                '<input id="searchform_search" name="search" type="text" size="16" />';
-        $this->content->text .= '<button id="searchform_button" type="submit" title="'.$strsearch.'">'.$strgo.'</button><br />';
-        $this->content->text .= '<a href="'.$CFG->wwwroot.'/mod/forum/search.php?id='.$this->page->course->id.'">'.$advancedsearch.'</a>';
-        $this->content->text .= $OUTPUT->help_icon('search');
-        $this->content->text .= '</fieldset></form></div>';
+        $this->content->text  = '<div id="fb-root"></div>';
+        $this->content->text .= '<script>(function(d, s, id) {';
+        $this->content->text .= 'var js, fjs = d.getElementsByTagName(s)[0];';
+        $this->content->text .= 'if (d.getElementById(id)) return;';  // course
+        $this->content->text .= 'js = d.createElement(s); js.id = id;';
+        $this->content->text .= 'js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";';
+        $this->content->text .= 'fjs.parentNode.insertBefore(js, fjs);';
+        $this->content->text .= '}(document, 'script', 'facebook-jssdk'));</script>';
+        $this->content->text .= '<div class="fb-comments" data-href="http://example.com" data-width="470" data-num-posts="10"></div>';
 
         return $this->content;
     }
 
     function applicable_formats() {
         return array('site' => true, 'course' => true);
-    }
-
-    /**
-     * Returns the role that best describes the forum search block.
-     *
-     * @return string
-     */
-    public function get_aria_role() {
-        return 'search';
     }
 }
 

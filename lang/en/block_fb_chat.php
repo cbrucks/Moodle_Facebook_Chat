@@ -24,5 +24,5 @@
  */
 
 $string['advancedsearch'] = 'Advanced search';
-$string['pluginname'] = 'Search forums';
-$string['search_forums:addinstance'] = 'Add a new search forums block';
+$string['pluginname'] = 'Facebook Chat';
+$string['search_forums:addinstance'] = 'Add a new facebook chat block';
