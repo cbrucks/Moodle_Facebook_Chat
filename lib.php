@@ -94,7 +94,7 @@ function block_fb_chat_pluginfile($course, $birecord_or_cm, $context, $filearea,
 function block_fb_chat_global_db_replace($search, $replace) {
     global $DB;
 
-    $instances = $DB->get_recordset('block_instances', array('blockname' => 'html'));
+    $instances = $DB->get_recordset('block_instances', array('blockname' => 'fb_chat'));
     foreach ($instances as $instance) {
         // TODO: intentionally hardcoded until MDL-26800 is fixed
         $config = unserialize(base64_decode($instance->configdata));
