@@ -35,10 +35,9 @@ class block_fb_chat extends block_base {
         $this->content->text .= '}(document, "script", "facebook-jssdk"));</script>';
         $this->content->text .= '<div class="fb-comments" data-href="' . $this->curPageURL() . '" data-width="275" data-num-posts="10"></div>';
 
-        echo $OUTPUT->notification($this->curPageURL());
-
         return $this->content;
     }
+
     function curPageURL() {
         $pageURL = 'http';
         if ($_SERVER["HTTPS"] == "on") {
@@ -52,6 +51,7 @@ class block_fb_chat extends block_base {
         }
         return $pageURL;
     }
+
     function applicable_formats() {
         return array('site' => true, 'course' => true);
     }
