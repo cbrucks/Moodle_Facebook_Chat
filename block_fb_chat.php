@@ -33,7 +33,7 @@ class block_fb_chat extends block_base {
         $this->content->text .= 'js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";';
         $this->content->text .= 'fjs.parentNode.insertBefore(js, fjs);';
         $this->content->text .= '}(document, "script", "facebook-jssdk"));</script>';
-        $this->content->text .= '<div class="fb-comments" data-href="' . $this->curPageURL() . '" data-width="175" data-num-posts="10"></div>';
+        $this->content->text .= '<div class="fb-comments" data-href="' . $this->curPageURL() . '" data-width="275" data-num-posts="10"></div>';
 
         echo $OUTPUT->notification($this->curPageURL());
 
