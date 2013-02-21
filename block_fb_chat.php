@@ -39,7 +39,7 @@ class block_fb_chat extends block_base {
             $this->content->text .= '}(document, "script", "facebook-jssdk"));</script>';
             $this->content->text .= '<div style="width:100%; background-color:#3b5998; height:40px; text-align:center; display:table;">';
             $this->content->text .= '<h1 style="display:table-cell; vertical-align:middle; font-family:\'lucida grande\',tahoma,verdana,arial,sans-serif; font-size:1.3em; font-weight:700; width:100%; color:#fff;">' . $COURSE->fullname . '</h1></div>';
-            $this->content->text .= '<div class="fb-comments" style="overflow-y:scroll;" data-href="' . $url . '" data-width="272" data-num-posts="10"></div>';
+            $this->content->text .= '<div class="fb-comments" data-href="' . $url . '" data-width="272" data-num-posts="10"></div>';
         } else {
             $this->content->text .= '<center><font color="red">(This plugin is inteded to be used inside of a course)</font></center>';
         }
@@ -51,6 +51,8 @@ class block_fb_chat extends block_base {
 
     function curPageURL() {
         global $COURSE;
+
+        return 'http://www.bigballoonpro.com/#page=media';
 
         $pageURL = 'http';
         if (!empty($_SERVER["HTTPS"])) {
