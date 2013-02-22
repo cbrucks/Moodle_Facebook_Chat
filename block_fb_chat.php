@@ -52,8 +52,6 @@ class block_fb_chat extends block_base {
     function curPageURL() {
         global $COURSE;
 
-        return 'http://www.bigballoonpro.com/#page=media';
-
         $pageURL = 'http';
         if (!empty($_SERVER["HTTPS"])) {
             $pageURL .= "s";
